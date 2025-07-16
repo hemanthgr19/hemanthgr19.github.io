@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hemanth Kumar | Full Stack .NET Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & basics */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #111827;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+    }
+    nav a {
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    /* Hero */
+    header {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #bfdbfe;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background-color: #facc15;
+      color: #1f2937;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: none;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 15px -5px #fbbf24;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #eab308;
+      box-shadow: 0 12px 20px -10px #f59e0b;
+      text-decoration: none;
+      color: #1f2937;
+    }
+
+    /* Container */
+    main {
+      max-width: 900px;
+      margin: 3rem auto 6rem;
+      padding: 0 1rem;
+    }
+
+    /* Section titles */
+    section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 0.3rem;
+      margin-top: 3rem;
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skills */
+    #skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    #skills li {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Experience */
+    #experience article {
+      margin-bottom: 2rem;
+    }
+    #experience h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 0.25rem;
+    }
+    #experience em {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    #experience ul {
+      list-style: disc;
+      margin-left: 1.25rem;
+      color: #374151;
+    }
+
+    /* Education */
+    #education p {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    #education p:last-child {
+      margin-bottom: 1.5rem;
+    }
+    #education span {
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* Certifications */
+    #certifications p {
+      font-size: 1rem;
+      color: #374151;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Projects */
+    #projects .project-card {
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.3s ease;
+      background: white;
+    }
+    #projects .project-card:hover {
+      box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
+    }
+    #projects .project-card h3 {
+      color: #2563eb;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-size: 1.25rem;
+    }
+    #projects .project-card p {
+      color: #4b5563;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+    #projects .project-card a {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      background: #e0e7ff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    #testimonials h2 {
+      color: #1e40af;
+    }
+    .testimonial {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: #374151;
+      border-left: 4px solid #2563eb;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '“';
+      font-size: 3rem;
+      position: absolute;
+      left: -1.2rem;
+      top: -1rem;
+      color: #2563eb;
+      font-weight: 700;
+      line-height: 0.5;
+    }
+    .testimonial-footer {
+      font-weight: 700;
+      font-style: normal;
+      margin-top: 0.5rem;
+      color: #1e3a8a;
+    }
+
+    /* Contact */
+    #contact p, #contact a {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+    #contact a {
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.25rem;
+      }
+      nav {
+        gap: 1rem;
+        padding: 1rem;
+      }
+      #skills ul {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#projects">Projects</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header id="hero" role="banner">
+  <h1>Hi, I’m Hemanth Kumar</h1>
+  <p>Full Stack .NET Developer | MSc Computer Science | Azure Certified | Passionate about building scalable and maintainable software solutions.</p>
+  <a href="#projects" class="btn-primary" aria-label="View Projects">View Projects</a>
+</header>
+
+<main role="main">
+
+  <section id="about" aria-label="About Me">
+    <h2>About Me</h2>
+    <p>
+      I am a dedicated Full Stack .NET Developer with over 3 years of experience designing and implementing web and cloud applications using C#, .NET Core, ReactJS, and Azure. 
+      I hold a Master’s degree in Computer Science from Teesside University, UK. I thrive in Agile teams and love solving complex problems by building efficient, user-friendly software.
+    </p>
+    <p>
+      Skilled in developing REST APIs, optimizing database queries, and delivering end-to-end solutions with a keen focus on clean, maintainable code. 
+      Passionate about continuous learning and applying new technologies to drive business value.
+    </p>
+  </section>
+
+  <section id="skills" aria-label="Skills and Technologies">
+    <h2>Skills & Technologies</h2>
+    <ul>
+      <li>C# / .NET Core</li>
+      <li>ASP.NET, Entity Framework</li>
+      <li>ReactJS, JavaScript, HTML5, CSS3</li>
+      <li>SQL Server, PostgreSQL</li>
+      <li>Microsoft Azure (App Services, Functions, DevOps)</li>
+      <li>Git, GitHub, Visual Studio</li>
+      <li>REST APIs, Agile/Scrum</li>
+      <li>Python, Kotlin</li>
+    </ul>
+  </section>
+
+  <section id="experience" aria-label="Professional Experience">
+    <h2>Professional Experience</h2>
+    
+    <article>
+      <h3>Software Engineer – Zensar Technologies</h3>
+      <em>Hyderabad, India | Jan 2021 – Jan 2023</em>
+      <ul>
+        <li><strong>Problem:</strong> Need for scalable, maintainable web modules to enhance enterprise applications.</li>
+        <li><strong>Solution:</strong> Developed modules using .NET Core and Angular, designed RESTful APIs and optimized SQL queries.</li>
+        <li><strong>Impact:</strong> Improved application performance, code maintainability, and accelerated feature delivery within Agile teams.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Front-End Developer – Proton Technology</h3>
+      <em>Hyderabad, India | Jan 2020 – Dec 2020</em>
+      <ul>
+        <li><strong>Problem:</strong> Needed responsive UI components for mobile and desktop web apps.</li>
+        <li><strong>Solution:</strong> Built ReactJS and Bootstrap-based front-end components integrated with REST APIs.</li>
+        <li><strong>Impact:</strong> Enhanced user experience and mobile compatibility, leading to increased user engagement.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="education" aria-label="Education">
+    <h2>Education</h2>
+    <p><strong>MSc Computer Science</strong>, Teesside University, UK — 2023</p>
+    <p><strong>BTech Computer Science & Engineering</strong>, Malla Reddy Institute of Engineering & Technology, India — 2020</p>
+  </section>
+
+  <section id="certifications" aria-label="Certifications">
+    <h2>Certifications</h2>
+    <p>Microsoft Certified: Azure Fundamentals (AZ-900)</p>
+  </section>
+
+  <section id="projects" aria-label="Projects">
+    <h2>Projects</h2>
+
+    <div class="project-card" tabindex="0">
+      <h3><a href="https://github.com/hemanthgr19/chefhub" target="_blank" rel="noopener noreferrer">ChefHub</a></h3>
+      <p><strong>Problem:</strong> Finding and organizing recipes on mobile was cumbersome for many users.</p>
+      <p><strong>Solution:</strong> Developed a Kotlin Android app featuring clean UI and category-based browsing.</p>
+      <p><strong>Impact:</strong> Simplified recipe discovery, boosting user satisfaction and engagement.</p>
+    </div>
+
+    <div class="project-card" tabindex="0">
+      <h3><a href="https://github.com/hemanthgr19/voice-to-text" target="_blank" rel="noopener noreferrer">Voice-to-Text Converter</a></h3>
+      <p><strong>Problem:</strong> Manual text entry is slow and error-prone.</p>
+      <p><strong>Solution:</strong> Built a Python application leveraging SpeechRecognition to convert voice to text.</p>
+      <p><strong>Impact:</strong> Enhanced productivity by enabling hands-free text transcription.</p>
+    </div>
+
+    <div class="project-card" tabindex="0">
+      <h3><a href="https://github.com/hemanthgr19/ZensarTraining_projectt" target="_blank" rel="noopener noreferrer">Online Shopping System</a></h3>
+      <p><strong>Problem:</strong> Training required practical exposure to full-stack e-commerce development.</p>
+      <p><strong>Solution:</strong> Created a full-stack application simulating basic e-commerce features.</p>
+      <p><strong>Impact:</strong> Strengthened understanding of real-world app architecture and workflows.</p>
+    </div>
+
+    <div class="project-card" tabindex="0">
+      <h3><a href="https://github.com/hemanthgr19/voice-command" target="_blank" rel="noopener noreferrer">Voice-Controlled Domino’s Ordering</a></h3>
+      <p><strong>Problem:</strong> Food ordering apps lack voice interaction capabilities.</p>
+      <p><strong>Solution:</strong> Developed a Python automation project to order via voice commands.</p>
+      <p><strong>Impact:</strong> Demonstrated innovative voice control interaction improving accessibility.</p>
+    </div>
+
+    <div class="project-card" tabindex="0">
+      <h3><a href="https://github.com/hemanthgr19/practise" target="_blank" rel="noopener noreferrer">Python Practice Scripts</a></h3>
+      <p><strong>Problem:</strong> Need for hands-on practice with core programming algorithms.</p>
+      <p><strong>Solution:</strong> Compiled scripts covering factorial, palindrome checks, and array operations.</p>
+      <p><strong>Impact:</strong> Sharpened algorithmic thinking and problem-solving skills.</p>
+    </div>
+  </section>
+
+  <section id="testimonials" aria-label="Testimonials">
+    <h2>Testimonials</h2>
+
+    <div class="testimonial">
+      Hemanth is a highly skilled developer who consistently delivers clean, maintainable code. His dedication to quality and collaboration made a significant impact on our project timelines.
+      <div class="testimonial-footer">— Geethangali, Senior Developer, Zensar Technologies</div>
+    </div>
+
+    <div class="testimonial">
+      Working with Hemanth was a pleasure — his attention to detail and problem-solving ability raised the bar for the entire team. His expertise in .NET and Azure is impressive.
+      <div class="testimonial-footer">— Sayan, Team Lead, Proton Technology</div>
+    </div>
+
+    <div class="testimonial">
+      Hemanth’s proactive approach to learning and implementation helped us streamline our cloud deployments. His communication skills and teamwork are outstanding.
+      <div class="testimonial-footer">— Hanisha, Project Manager</div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact Information">
+    <h2>Contact</h2>
+    <p><strong>Location:</strong> Telford, UK</p>
+    <p><strong>Phone:</strong> +44 7436 373250</p>
+    <p><strong>Email:</strong> <a href="mailto:hemanthgogulla@gmail.com">hemanthgogulla@gmail.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/hemanthgr19" target="_blank" rel="noopener noreferrer">github.com/hemanthgr19</a></p>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <p>&copy; 2025 Hemanth Kumar. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
